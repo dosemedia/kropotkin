@@ -1,0 +1,27 @@
+{
+  "name": "kropotkin",
+  "version": "1.0.0",
+  "description": "Remote e2e selenium testing via intern and leadfoot",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/intern-client config=tests/intern"
+  },
+  "keywords": [
+    "testing",
+    "selenium",
+    "intern",
+    "leadfoot"
+  ],
+  "author": "Erik Stockmeier <erik@dose.com>",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/erikdstock/kropotkin#readme",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "intern": "^3.0.6",
+    "lodash": "^4.8.2",
+    "request-promise": "^2.0.1"
+  },
+  "devDependencies": {
+    "chromedriver": "^2.21.2"
+  }
+}
