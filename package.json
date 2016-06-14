@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Remote e2e selenium testing via intern and leadfoot",
   "main": "index.js",
+  "bin": {
+    "krop": "./index.js"
+  },
   "scripts": {
     "test": "./node_modules/.bin/intern-client config=tests/intern"
   },
