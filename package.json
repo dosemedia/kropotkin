@@ -1,6 +1,6 @@
 {
   "name": "kropotkin",
-  "version": "1.0.0",
+  "version": "0.0.6",
   "description": "Remote e2e selenium testing via intern and leadfoot",
   "main": "index.js",
   "bin": {
