@@ -7,7 +7,7 @@ var version = require('../package.json').version;
 
 program
   .version(version)
-  .usage('<command> [options]');
+  .usage('<command>');
 
 program
   .command('test <target>')
@@ -21,13 +21,8 @@ program
     // TODO - local testing with chromedriver
     .option('-l, --local [webdriver]',
       'Run tests locally with [chromedriver] instance',
-      'chromedriver')
-    // regex 3rd arg functions as as a validator- I want a url with no trailing slash.
-    // We could also use a function
-    .option('-t, --target <url>',
-      'System Target Url',
-      /^(https?.*[^\/])(?:\/?$)/i);
-  
+      'chromedriver');
+
   program
   .command('quote [name]')
   .description('print a random quote by 19th-century philosopher Piotr Kropotkin')
