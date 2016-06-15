@@ -17,13 +17,14 @@ program
     // config file defaults to ./intern.js
     .option('-c, --config [file]',
       'AMD path to intern config file - [path/to/file].js',
-      'intern')
+      'local')
     // TODO - local testing with chromedriver
-    .option('-l, --local [webdriver]',
+    .option('-w, --webdriver [webdriver]',
       'Run tests locally with [chromedriver] instance',
-      'chromedriver');
+      'chromedriver')
+    .option('-R, --remote', 'Run tests against a remote (sauce) selenium server');
 
-  program
+program
   .command('quote [name]')
   .description('print a random quote by 19th-century philosopher Piotr Kropotkin')
   .action(commands.quote);
