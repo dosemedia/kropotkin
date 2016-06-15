@@ -4,7 +4,7 @@
   "description": "Remote e2e selenium testing via intern and leadfoot",
   "main": "index.js",
   "bin": {
-    "krop": "./index.js"
+    "krop": "./bin/cli.js"
   },
   "scripts": {
     "test": "intern-client config=tests/intern"

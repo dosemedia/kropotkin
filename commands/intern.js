@@ -2,16 +2,17 @@
 // Intern Test Command
 //
 
-exports.intern = (target, command) => {
+module.exports = (target, command) => {
   var targetUrl = parseTarget(target);
   console.log('Loading Kropotkin');
-  console.log(' config: %j.js', program.config);
-  console.log("target: %j", targetUrl);
+  console.log(' config: %s.js', command.config);
+  console.log(" target: %s", targetUrl);
   // console.log(program.args);
 };
 
 function parseTarget(target) {
-  var matchData = /^(https?.*[^\/])(?:\/?$)/i.match(target);
+  var re = /^(https?.*[^\/])(?:\/?$)/i;
+  var matchData = target.match(re);
   if (matchData) return matchData[1];
   throw new Error('<target> must be a valid url');
 }

@@ -1,35 +1,41 @@
-// #!/usr/bin/env node
-// // CLI setup
-// require('../commands/index');
-// var version = require('../package.json').version;
-// var program = require('commander');
-//
-// program
-//   .version(version)
-//   .usage('<command> [options]');
-//
-// // // define options
-// // program
-// //   .command('test <target>', 'run intern tests')
-// //     .description('run intern tests')
-// //     // config file defaults to ./intern.js
-// //     .option('-c, --config [file]',
-// //       'AMD path to intern config file - [path/to/file].js',
-// //       'intern')
-// //     // regex 3rd arg functions as as a validator- I want a url with no trailing slash.
-// //     // We could also use a function
-// //     .option('-t, --target <url>',
-// //       'System Target Url',
-// //       /^(https?.*[^\/])(?:\/?$)/i);
-// //
-// // program
-// //   .command('quote')
-// //     .description('print a random quote by the 19th-century philosopher Piotr Kropotkin')
-// //     .action(() => {console.log(sample(quotes));});
-//
-// program
-//   .parse(process.argv);
-//
-// if (!program.args.length) {
-//   program.help();
-// }
+#!/usr/bin/env node
+// CLI setup
+var program = require('commander');
+var commands = require('../commands');
+
+var version = require('../package.json').version;
+
+program
+  .version(version)
+  .usage('<command> [options]');
+
+program
+  .command('test <target>')
+  .description('run intern tests against <target>')
+  .action(commands.intern)
+    // .description('run intern tests')
+    // config file defaults to ./intern.js
+    .option('-c, --config [file]',
+      'AMD path to intern config file - [path/to/file].js',
+      'intern')
+    // TODO - local testing with chromedriver
+    .option('-l, --local [webdriver]',
+      'Run tests locally with [chromedriver] instance',
+      'chromedriver')
+    // regex 3rd arg functions as as a validator- I want a url with no trailing slash.
+    // We could also use a function
+    .option('-t, --target <url>',
+      'System Target Url',
+      /^(https?.*[^\/])(?:\/?$)/i);
+  
+  program
+  .command('quote [name]')
+  .description('print a random quote by 19th-century philosopher Piotr Kropotkin')
+  .action(commands.quote);
+
+program
+  .parse(process.argv);
+
+if (!program.args.length) {
+  program.help();
+}
