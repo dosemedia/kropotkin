@@ -21,7 +21,6 @@
   "dependencies": {
     "commander": "^2.9.0",
     "dotenv": "^2.0.0",
-    "intern": "^3.0.6",
     "lodash": "^4.8.2",
     "request-promise": "^2.0.1"
   },
