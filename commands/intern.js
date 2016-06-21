@@ -9,6 +9,7 @@ var path = require('path');
 module.exports = (target, command) => {
   var internRunner = npmBinPath('intern-runner');
   var targetUrl = parseTarget(target);
+  var test;
   process.env.URL = targetUrl;
 
   console.log('Loading Kropotkin');
@@ -16,13 +17,20 @@ module.exports = (target, command) => {
   console.log(" target: %s", targetUrl);
 
   if (command.remote) {
-    console.log(' Running against Sauce Labs');
-    // run against Sauce
+
+    console.log(' Running on remote Selenium');
+    test = spawn(internRunner, [`config=${command.config}`]);
+    test.stdout.on('data', (data) => console.log(String(data)));
+    test.stderr.on('data', (data) => console.log(`error: ${data}`));
+    test.on('close', (code) => {
+      process.exit(code);
+    });
+
   } else {
     console.log(' webdriver: %s', command.webdriver);
     var chromeDriver;
     startChromedriver();
-    var test = spawn(internRunner, [`config=${command.config}`]);
+    test = spawn(internRunner, [`config=${command.config}`]);
     test.stdout.on('data', (data) => console.log(String(data)));
     test.stderr.on('data', (data) => console.log(`error: ${data}`));
     test.on('close', (code) => {
