@@ -23,6 +23,7 @@ module.exports = (target, command) => {
     test.stdout.on('data', (data) => console.log(String(data)));
     test.stderr.on('data', (data) => console.log(`error: ${data}`));
     test.on('close', (code) => {
+      console.log(`exiting: ${code}`);
       process.exit(code);
     });
 
