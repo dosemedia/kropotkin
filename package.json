@@ -17,7 +17,6 @@
   ],
   "author": "Erik Stockmeier <erik@dose.com>",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/erikdstock/kropotkin#readme",
   "dependencies": {
     "commander": "^2.9.0",
     "dotenv": "^2.0.0",
@@ -29,6 +28,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/spartz/kropotkin"
+    "url": "https://github.com/dosemedia/kropotkin"
   }
 }
